@@ -18,4 +18,4 @@ export const store = createStore(
   )
 )
 
-store.dispatch(getMovies())
+store.dispatch(getMovies('star wars'))

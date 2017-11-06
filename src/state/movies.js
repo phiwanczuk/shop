@@ -1,12 +1,12 @@
 const SET_MOVIES = 'movies/SET_MOVIES'
 
-export const getMovies = () => (dispatch, getState) => {
+export const getMovies = searchInput => (dispatch, getState) => {
   fetch(
-    'http://www.omdbapi.com/?apikey=e007e3f6&s=star%20wars'
+    `http://www.omdbapi.com/?apikey=e007e3f6&s=${searchInput}`
   )
     .then(response => response.json())
     .then(data => {
-      dispatch(setMovies(data))
+      dispatch(setMovies(data.Search))
     })
 }
 
