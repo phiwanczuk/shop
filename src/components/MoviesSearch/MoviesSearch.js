@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import {FormControl, FormGroup,Button} from 'react-bootstrap'
 import {getMovies} from "../../state/movies";
 
+import LoadingIndicator from '../LoadingIndicator'
+
 class MoviesSearch extends React.Component{
   state={
     searchInput:''
@@ -19,6 +21,9 @@ class MoviesSearch extends React.Component{
 
 
     return (
+      this.props.isMoviesFetching ?
+        <LoadingIndicator/>
+        :
       <div>
         <FormGroup>
           <FormControl
@@ -42,7 +47,8 @@ class MoviesSearch extends React.Component{
 }
 
 const mapStateToProps = state => ({
-  moviesData: state.movies.moviesData
+  moviesData: state.movies.moviesData,
+  isMoviesFetching: state.movies.isMoviesFetching
 })
 
 const mapDispatchToProps = dispatch => ({
