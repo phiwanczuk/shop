@@ -14,7 +14,7 @@ class MoviesSearch extends React.Component{
       })
     }
       const searchClickHandler = event => {
-        console.log(this.state.searchInput)
+        this.props.getMovies(this.state.searchInput)
       }
 
 
@@ -50,6 +50,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(MoviesSearch)
 
